@@ -1,193 +1,197 @@
-# Frontend Specialist Assessment
+# Metrics Dashboard
 
-## Objective
+A modern, responsive dashboard built with Next.js 14, TypeScript, and Tailwind CSS.
 
-Create a modern, responsive dashboard using Next.js 14 that demonstrates your frontend expertise.
+## Features
 
-## Project Overview
+- 📊 Real-time metrics visualization
+- 🌓 Dark/light mode support
+- 📱 Responsive design
+- ⚡ Server and Client Components
+- 🔍 Type-safe development
+- 🎨 Modern UI with Tailwind CSS
+- 📈 Interactive charts with Chart.js
+- ⚠️ Comprehensive error handling
+- 🔄 Loading state management
 
-You'll be building a metrics dashboard that:
+## Tech Stack
 
-- Displays real-time and historical data
-- Implements responsive layouts
-- Handles loading and error states
-- Uses modern React patterns
-
-## Tasks
-
-### 1. Dashboard Implementation (40 points)
-
-```tsx
-// Example component structure provided
-import { Suspense } from "react";
-import { MetricsChart, DataGrid, StatusCards } from "./components";
-
-export default function Dashboard() {
-  return (
-    <div className="dashboard-layout">
-      <Suspense fallback={<Loading />}>
-        {/* Implement your dashboard here */}
-      </Suspense>
-    </div>
-  );
-}
-```
-
-Requirements:
-
-- Use Next.js 14 App Router
-- Implement Server and Client Components appropriately
-- Create reusable components
-- Add proper loading states
-- Handle errors gracefully
-- Make it responsive (mobile-first)
-
-### 2. Data Integration (30 points)
-
-We provide a mock API in `api/mock-data.ts`:
-
-```typescript
-// Example usage
-const data = await fetchMetrics(); // Returns mock time-series data
-const status = await fetchStatus(); // Returns mock status updates
-```
-
-Requirements:
-
-- Implement data fetching using provided mock API
-- Add proper TypeScript types
-- Handle loading states
-- Implement error boundaries
-- Add retry logic
-- Cache responses appropriately
-
-### 3. Performance & Testing (30 points)
-
-Requirements:
-
-- Add component tests using React Testing Library
-- Implement performance monitoring
-- Optimize bundle size
-- Add error tracking
-- Document performance decisions
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Charts**: Chart.js & react-chartjs-2
+- **Icons**: Heroicons
+- **Date Formatting**: date-fns
+- **Testing**: Jest & React Testing Library
+- **Linting**: ESLint & Prettier
 
 ## Getting Started
 
-1. Setup project:
+### Prerequisites
 
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-# Everything is local - no external services needed
+git clone <repository-url>
+cd frontend
+```
+
+2. Install dependencies:
+```bash
 npm install
+```
+
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-2. Available Scripts:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```bash
-npm run dev        # Start development server
-npm run test      # Run tests
-npm run lint      # Check code quality
-npm run build     # Production build
-```
-
-3. Project Structure:
+## Project Structure
 
 ```
 frontend/
-├── app/                # Next.js 14 app directory
-├── components/         # Reusable components
-├── lib/               # Utilities and helpers
-├── api/               # Mock API endpoints
-└── tests/             # Test files
+├── src/
+│   ├── app/                # Next.js 14 app directory
+│   │   ├── layout.tsx     # Root layout
+│   │   ├── page.tsx      # Dashboard page
+│   │   ├── providers.tsx # Theme provider
+│   │   └── globals.css   # Global styles
+│   ├── components/        # React components
+│   │   ├── MetricsChart.tsx
+│   │   ├── StatusCards.tsx
+│   │   ├── DataGrid.tsx
+│   │   ├── ThemeToggle.tsx
+│   │   └── Loading.tsx
+│   └── api/              # Mock API
+│       └── mock-data.ts
+├── public/              # Static assets
+├── package.json
+├── tsconfig.json
+├── tailwind.config.js
+└── postcss.config.js
 ```
 
-## Provided Resources
+## Components
 
-- Mock API with TypeScript types
-- Basic component templates
-- Test setup and examples
-- ESLint configuration
-- Example data structures
-
-## Requirements
-
-### Technical
-
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- React Testing Library
-- ESLint + Prettier
-
-### Features
-
-- Metrics visualization
-- Data tables
-- Status indicators
-- Search/filter functionality
+### MetricsChart
+- Displays time-series data using Chart.js
+- Supports real-time updates
 - Responsive design
-- Dark/light mode
 
-### Testing
+### StatusCards
+- Shows system status updates
+- Visual indicators for different states
+- Real-time status changes
 
+### DataGrid
+- Tabular view of metrics data
+- Sortable columns
+- Pagination support
+
+### ThemeToggle
+- Switches between dark and light modes
+- Persists theme preference
+- Smooth transition effects
+
+## API Integration
+
+The dashboard uses a mock API (`src/api/mock-data.ts`) that simulates:
+- Metrics data fetching
+- Status updates
+- Error scenarios
+
+### API Endpoints
+
+```typescript
+fetchMetrics(page?: number, limit?: number): Promise<MetricsResponse>
+fetchStatus(page?: number, limit?: number): Promise<StatusResponse>
+```
+
+## Styling
+
+### Theme Configuration
+
+The project uses a custom theme configuration with CSS variables for:
+- Colors
+- Typography
+- Spacing
+- Dark mode variants
+
+### Tailwind CSS
+
+Custom configuration includes:
+- Extended color palette
+- Custom components
+- Responsive breakpoints
+- Dark mode utilities
+
+## Testing
+
+Run the test suite:
+
+```bash
+npm run test          # Run all tests
+npm run test:watch    # Watch mode
+npm run test:coverage # Coverage report
+```
+
+### Test Structure
 - Component tests
 - Integration tests
-- Performance tests
-- Accessibility tests
+- Mock API tests
+- Theme tests
 
-## Evaluation Criteria
+## Scripts
 
-### Code Quality (30%)
+```bash
+npm run dev      # Start development server
+npm run build    # Production build
+npm run start    # Start production server
+npm run lint     # Run ESLint
+npm run format   # Run Prettier
+npm run test     # Run tests
+```
 
-- Clean, maintainable code
-- TypeScript usage
-- Error handling
-- Code organization
+## Performance Optimization
 
-### UI/UX (30%)
+- Server Components for reduced client-side JavaScript
+- Optimized images and assets
+- Code splitting
+- Cached API responses
+- Minimized re-renders
 
-- Responsive design
-- Loading states
-- Error states
-- Visual consistency
+## Browser Support
 
-### Performance (20%)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-- Load time optimization
-- Bundle size
-- Render optimization
-- Caching strategy
+## Contributing
 
-### Testing (20%)
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-- Test coverage
-- Test quality
-- Edge cases
-- Accessibility testing
+## License
 
-## Tips
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-- Start with component structure
-- Use provided mock data
-- Focus on core functionality first
-- Document key decisions
-- Consider edge cases
-- Test thoroughly
+## Acknowledgments
 
-## Submission Checklist
+- Next.js team for the amazing framework
+- Tailwind CSS for the utility-first CSS framework
+- Chart.js for the charting library
+- All other open-source contributors
 
-- [ ] All features implemented
-- [ ] Tests passing
-- [ ] Performance optimized
-- [ ] Documentation complete
-- [ ] Code linting clean
-- [ ] Responsive design working
-- [ ] Dark/light mode working
+## Contact
 
-## Notes
-
-- All data is mocked locally - no external services needed
-- No authentication required
-- No backend integration needed
-- Focus on frontend implementation
-- Document any assumptions made
+For any questions or feedback, please open an issue in the repository.
