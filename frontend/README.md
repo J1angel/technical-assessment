@@ -2,18 +2,6 @@
 
 A modern, responsive dashboard built with Next.js 14, TypeScript, and Tailwind CSS.
 
-## Features
-
-- 📊 Real-time metrics visualization
-- 🌓 Dark/light mode support
-- 📱 Responsive design
-- ⚡ Server and Client Components
-- 🔍 Type-safe development
-- 🎨 Modern UI with Tailwind CSS
-- 📈 Interactive charts with Chart.js
-- ⚠️ Comprehensive error handling
-- 🔄 Loading state management
-
 ## Tech Stack
 
 - **Framework**: Next.js 14
